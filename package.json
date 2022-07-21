@@ -7,6 +7,9 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --watch package.json --exit-child --cls --rs -r tsconfig-paths/register -r dotenv/config src/index.ts"
 	},
+	"prisma": {
+		"seed": "ts-node prisma/seed.ts"
+	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
