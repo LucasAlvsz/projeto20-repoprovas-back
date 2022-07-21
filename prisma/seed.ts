@@ -41,14 +41,14 @@ const main = async () => {
 			name: "Bruna Hamori",
 		},
 	]
-	const diciplines = [
+	const disciplines = [
 		{
 			name: "HTML e CSS",
-			termId: "1",
+			termId: 1,
 		},
 		{
 			name: "JavaScript",
-			termId: "2",
+			termId: 2,
 		},
 		{
 			name: "React",
@@ -70,29 +70,34 @@ const main = async () => {
 	const teachersDisciplines = [
 		{
 			teacherId: 1,
-			diciplineId: 1,
+			disciplineId: 1,
 		},
 		{
 			teacherId: 1,
-			diciplineId: 2,
+			disciplineId: 2,
 		},
 		{
 			teacherId: 1,
-			diciplineId: 3,
+			disciplineId: 3,
 		},
 		{
 			teacherId: 2,
-			diciplineId: 4,
+			disciplineId: 4,
 		},
 		{
 			teacherId: 2,
-			diciplineId: 5,
+			disciplineId: 5,
 		},
 		{
 			teacherId: 2,
-			diciplineId: 6,
+			disciplineId: 6,
 		},
 	]
+	await prisma.term.createMany({ data: terms })
+	await prisma.category.createMany({ data: categories })
+	await prisma.teacher.createMany({ data: teachers })
+	await prisma.dicipline.createMany({ data: disciplines })
+	await prisma.teacherDiscipline.createMany({ data: teachersDisciplines })
 }
 
 main()
