@@ -1,4 +1,4 @@
-import { conflictError, notFoundError, unauthorizedError } from "@/erros"
+import { conflictError, notFoundError, unauthorizedError } from "@/errors"
 import { LoginData, UserData } from "@/interfaces/userInterface"
 import userRepository from "@/repositories/userRepository"
 import { decryptAndcompare, encryptWithSalt } from "@/utils/cryptographyUtils"
