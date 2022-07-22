@@ -1,7 +1,16 @@
 import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient()
 
+import { encryptWithSalt } from "../src/utils/cryptographyUtils"
+
 const main = async () => {
+	const user = [
+		{
+			name: "lucax",
+			email: "lucax@gmail.com",
+			password: encryptWithSalt("lucax"),
+		},
+	]
 	const terms = [
 		{
 			number: 1,
@@ -93,6 +102,7 @@ const main = async () => {
 			disciplineId: 6,
 		},
 	]
+	await prisma.user.createMany({ data: user })
 	await prisma.term.createMany({ data: terms })
 	await prisma.category.createMany({ data: categories })
 	await prisma.teacher.createMany({ data: teachers })

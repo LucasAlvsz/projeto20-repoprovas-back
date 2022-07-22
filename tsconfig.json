@@ -2,9 +2,8 @@
 	"compilerOptions": {
 	  "esModuleInterop": true,
 	  "module": "CommonJS",
-	  "moduleResolution": "node",
-	  "outDir": "build",
-	  "baseUrl": ".",
+	  "outDir": "dist",
+      "target": "ES2017",
 	  "paths": {
 		  "@/*": [
 			  "./src/*"

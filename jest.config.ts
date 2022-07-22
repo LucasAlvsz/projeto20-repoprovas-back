@@ -24,7 +24,7 @@ export default {
 	// coverageDirectory: undefined,
 
 	// An array of regexp pattern strings used to skip coverage collection
-	coveragePathIgnorePatterns: ["/node_modules/"],
+	//coveragePathIgnorePatterns: ["/node_modules/"],
 
 	// Indicates which provider should be used to instrument code for coverage
 	coverageProvider: "v8",
@@ -144,7 +144,7 @@ export default {
 	// testEnvironment: "jest-environment-node",
 
 	// Options that will be passed to the testEnvironment
-	// testEnvironmentOptions: {},
+	testEnvironment: "node",
 
 	// Adds a location field to test results
 	// testLocationInResults: false,
