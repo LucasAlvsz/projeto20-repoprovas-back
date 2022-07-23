@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "babel src --extensions '.js,.ts' --out-dir dist --no-copy-ignored",
 		"start": "node dist/server.js",
-		"test": "dotenv -e .env.test prisma migrate reset --force && dotenv -e .env.test jest --runInBandjest --detectOpenHandles",
+		"test": "dotenv -e .env.test prisma migrate reset --force-reset && dotenv -e .env.test jest --runInBandjest --detectOpenHandles",
 		"dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --watch package.json --exit-child --cls --rs -r tsconfig-paths/register -r dotenv/config src/server.ts"
 	},
 	"prisma": {
