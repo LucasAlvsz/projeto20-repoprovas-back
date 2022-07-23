@@ -9,7 +9,7 @@ import testRouter from "./testRouter"
 const router = Router()
 
 router.use(authRouter)
-router.use("/tests", testRouter)
+router.use(testRouter)
 router.use(handleError)
 
 export default router

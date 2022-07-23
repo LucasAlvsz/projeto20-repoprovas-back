@@ -9,6 +9,11 @@ const findByName = async (name: string, model: Prisma.ModelName) => {
 	})
 }
 
+const findAll = async (model: Prisma.ModelName) => {
+	return prisma[model].findMany({})
+}
+
 export default {
 	findByName,
+	findAll,
 }

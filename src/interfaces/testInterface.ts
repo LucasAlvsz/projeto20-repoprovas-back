@@ -8,4 +8,6 @@ type TestBody = Omit<TestData, "teacherDiscipline" | "categoryId"> & {
 	teacher: string
 }
 
-export { TestData, TestBody }
+type GroupBy = "disciplines" | "teachers"
+
+export { TestData, TestBody, GroupBy }

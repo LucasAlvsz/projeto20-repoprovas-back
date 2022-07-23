@@ -1,4 +1,4 @@
-import { TestBody } from "@/interfaces/testInterface"
+import { GroupBy, TestBody } from "@/interfaces/testInterface"
 import queryFactory from "@/factories/queryFactory"
 import testRepository from "@/repositories/testRepository"
 import teacherDisciplineRepository from "@/repositories/teacherDisciplineRepository"
@@ -45,6 +45,14 @@ const validateElegibilityToCreateTest = async (testBody: TestBody) => {
 	}
 }
 
+const getGroupedTests = async (groupBy: GroupBy) => {
+	if (groupBy === "disciplines")
+		return testRepository.getAllGroupedByTermAndDiscipline()
+	if (groupBy === "teachers") return testRepository.getAllGroupedByTeachers()
+	throw notFoundError(`${groupBy} not found`)
+}
+
 export default {
 	createTest,
+	getGroupedTests,
 }
