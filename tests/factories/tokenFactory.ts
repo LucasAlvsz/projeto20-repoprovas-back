@@ -3,7 +3,7 @@ import { LoginData } from "@/interfaces/userInterface"
 import supertest from "supertest"
 
 const getToken = async (user: LoginData) => {
-	const response = await supertest(app).post("/signIn").send(user)
+	const response = await supertest(app).post("/sign-in").send(user)
 	return response.body.token
 }
 
