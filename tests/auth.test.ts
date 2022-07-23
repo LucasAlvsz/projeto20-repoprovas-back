@@ -1,5 +1,5 @@
-import app from "../src/app"
-import prisma from "../src/db"
+import prisma from "@/db"
+import app from "@/app"
 import supertest from "supertest"
 import {
 	alreadyRegisteredCredentials,

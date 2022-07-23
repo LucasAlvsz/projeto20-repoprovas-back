@@ -1,32 +1,34 @@
-import { notFoundError } from "@/errors"
-import queryFactory from "@/factories/queryFactory"
 import { TestBody } from "@/interfaces/testInterface"
-import teacherDisciplineRepository from "@/repositories/teacherDisciplineRepository"
+import queryFactory from "@/factories/queryFactory"
 import testRepository from "@/repositories/testRepository"
+import teacherDisciplineRepository from "@/repositories/teacherDisciplineRepository"
+import { notFoundError } from "@/errors"
 
 const createTest = async (testBody: TestBody) => {
 	const { categoryId, teacherDisciplineId } =
 		await validateElegibilityToCreateTest(testBody)
-	const test = await testRepository.create({
-		...testBody,
+	const { name, pdfUrl } = testBody
+	const { id } = await testRepository.create({
+		name,
+		pdfUrl,
 		categoryId,
 		teacherDisciplineId,
 	})
-	return { id: test.id, name: test.name, pdfUrl: test.pdfUrl }
+	return { id, name, pdfUrl }
 }
 
 const validateElegibilityToCreateTest = async (testBody: TestBody) => {
 	const { category, discipline, teacher } = testBody
-	const validCategory = await queryFactory.findByName(category, "category")
+	const validCategory = await queryFactory.findByName(category, "Category")
 	if (!validCategory) throw notFoundError("category not found")
 
 	const validDiscipline = await queryFactory.findByName(
 		discipline,
-		"discipline"
+		"Discipline"
 	)
 	if (!validDiscipline) throw notFoundError("discipline not found")
 
-	const validTeacher = await queryFactory.findByName(teacher, "teacher")
+	const validTeacher = await queryFactory.findByName(teacher, "Teacher")
 	if (!validTeacher) throw notFoundError("teacher not found")
 
 	const validTeacherDiscipline =
@@ -36,7 +38,7 @@ const validateElegibilityToCreateTest = async (testBody: TestBody) => {
 		)
 	if (!validTeacherDiscipline)
 		throw notFoundError("This teacher does not teach this discipline")
-
+	console.log
 	return {
 		categoryId: validCategory.id,
 		teacherDisciplineId: validTeacherDiscipline.id,

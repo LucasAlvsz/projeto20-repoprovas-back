@@ -3,6 +3,7 @@
 	  "esModuleInterop": true,
 	  "module": "CommonJS",
 	  "outDir": "dist",
+	  "rootDir": ".",
       "target": "ES2017",
 	  "paths": {
 		  "@/*": [

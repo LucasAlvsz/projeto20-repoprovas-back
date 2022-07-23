@@ -106,7 +106,7 @@ const main = async () => {
 	await prisma.term.createMany({ data: terms })
 	await prisma.category.createMany({ data: categories })
 	await prisma.teacher.createMany({ data: teachers })
-	await prisma.dicipline.createMany({ data: disciplines })
+	await prisma.discipline.createMany({ data: disciplines })
 	await prisma.teacherDiscipline.createMany({ data: teachersDisciplines })
 }
 

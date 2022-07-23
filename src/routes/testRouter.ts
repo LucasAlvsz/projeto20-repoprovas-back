@@ -8,6 +8,6 @@ import { createNewTest } from "@/controller/testController"
 const testRouter = Router()
 
 testRouter.use(validateBearerToken)
-testRouter.get("/create", createNewTest)
+testRouter.post("/create", validateSchema(testSchema), createNewTest)
 
 export default testRouter

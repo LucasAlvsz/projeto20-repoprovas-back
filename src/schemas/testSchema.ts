@@ -7,6 +7,7 @@ const bodySchema = Joi.object<TestBody>({
 	pdfUrl: Joi.string().uri().required(),
 	category: Joi.string().required(),
 	teacher: Joi.string().required(),
+	discipline: Joi.string().required(),
 })
 	.required()
 	.options({ allowUnknown: false })
