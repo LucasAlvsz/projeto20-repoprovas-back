@@ -7,6 +7,7 @@ const create = async (testData: TestData) => {
 
 const getAllGroupedByTermAndDiscipline = async () => {
 	return prisma.term.findMany({
+		orderBy: { number: "asc" },
 		select: {
 			id: true,
 			number: true,
